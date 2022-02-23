@@ -7,5 +7,12 @@ namespace Xplosive.Models
 {
     public class DailyInfo
     {
+        public string Id { get; set; }
+
+        public DailyWorkout Workout { get; set; }
+
+        public DailyNutrition Nutrition { get; set; }
+
+        public double Weight { get; set; }
     }
 }
