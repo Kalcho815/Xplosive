@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace Xplosive.Models
 {
+    [Table("DAILY_NUTRITIONS")]
     public class DailyNutrition
     {
         public DailyNutrition()
         {
             this.Foods = new List<Food>();
+            this.Id = Guid.NewGuid().ToString();
         }
 
         [Column("ID")]
         [Required]
+        [Key]
         public string Id { get; set; }
 
         [Column("FOODS")]

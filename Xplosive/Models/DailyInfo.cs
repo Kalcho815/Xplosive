@@ -7,10 +7,17 @@ using System.Threading.Tasks;
 
 namespace Xplosive.Models
 {
+    [Table("DAILY_INFOS")]
     public class DailyInfo
     {
+        public DailyInfo()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
         [Column("ID")]
         [Required]
+        [Key]
         public string Id { get; set; }
 
         [Column("WORKOUT_ID")]
@@ -27,5 +34,11 @@ namespace Xplosive.Models
 
         [Column("WEIGHT")]
         public double Weight { get; set; }
+
+
+        [Column("USER_ID")]
+        [ForeignKey("USER")]
+        public string UserId { get; set; }
+        public User User { get; set; }
     }
 }

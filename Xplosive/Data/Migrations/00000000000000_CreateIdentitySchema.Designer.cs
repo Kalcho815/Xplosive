@@ -9,7 +9,7 @@ using Xplosive.Data;
 
 namespace Xplosive.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(XplosiveDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {

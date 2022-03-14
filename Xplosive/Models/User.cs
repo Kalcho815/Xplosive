@@ -14,10 +14,12 @@ namespace Xplosive.Models
         public User()
         {
             this.DailyInfos = new List<DailyInfo>();
+            this.Id = Guid.NewGuid().ToString();
         }
 
         [Column("ID")]
         [Required]
+        [Key]
         public string Id { get; set; }
 
         [Column("USERNAME")]

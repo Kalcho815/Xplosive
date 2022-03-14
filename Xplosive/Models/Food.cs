@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace Xplosive.Models
 {
+    [Table("FOOD")]
     public class Food
     {
         public Food()
         {
-
+            this.Id = Guid.NewGuid().ToString();
         }
 
         [Required]
         [Column("ID")]
+        [Key]
         public string Id { get; set; }
 
         [Required]
