@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  web:
+#    Dotnet core
+    build:
+      context: .
+      dockerfile: Dockerfile
+      
+    
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    container_name: Xplosive_web
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
