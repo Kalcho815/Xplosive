@@ -8842,25 +8842,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\knedya200\\.nuget\\packages\\": {},
+    "C:\\Users\\Knedya200\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\knedya200\\source\\repos\\Xplosive\\Xplosive\\Xplosive.csproj",
+      "projectUniqueName": "C:\\Program Files\\Git\\Xplosive\\Xplosive\\Xplosive.csproj",
       "projectName": "Xplosive",
-      "projectPath": "C:\\Users\\knedya200\\source\\repos\\Xplosive\\Xplosive\\Xplosive.csproj",
-      "packagesPath": "C:\\Users\\knedya200\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\knedya200\\source\\repos\\Xplosive\\Xplosive\\obj\\",
+      "projectPath": "C:\\Program Files\\Git\\Xplosive\\Xplosive\\Xplosive.csproj",
+      "packagesPath": "C:\\Users\\Knedya200\\.nuget\\packages\\",
+      "outputPath": "C:\\Program Files\\Git\\Xplosive\\Xplosive\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\knedya200\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Knedya200\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
