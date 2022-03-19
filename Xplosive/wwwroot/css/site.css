@@ -1,80 +1,23 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
-:root{
+﻿:root{
   --white: #fff;
   --purple: #7e34a4;
   --light-purple: #bd44a0;
   --dark-purple: #4828ab;
 
+}
+
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  /*position: absolute;*/
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
 }
 
 *{
@@ -122,4 +65,55 @@ body {
   padding: 10px;
   display: block;
   transition: 0.3s;
+}
+
+#homepageHeader{
+  background-image: url("/images/image1.png");
+  min-height: 100vh;
+  background-size: cover;
+  object-fit: cover;
+  font-family: 'Bebas Neue', cursive;
+  
+}
+
+.hero-text{
+
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  text-align: left;
+  z-index: 2;
+  width: 50%;
+}
+.hero-text h1{
+  font-size: 74pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
+}
+
+.hero-border{
+  background-color: var(--light-purple);
+  clip-path: polygon(89% 0, 96% 63%, 100% 100%, 0 100%, 0 0);
+  height: 30px;
+
+
+}
+.hero-border-wrapper{
+  display: flex;
+  gap: 2rem;
+}
+
+.hero-border.xl{
+  width: 70%;
+}
+
+.hero-border.m{
+  width: 50px;
+
+  transform: skew(50deg);
+
 }
