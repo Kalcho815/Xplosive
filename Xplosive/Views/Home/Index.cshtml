@@ -2,7 +2,70 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<header id="homepageHeader">
+    <partial name="~/Views/Shared/_Nav.cshtml">
+        
+    </partial>
+    <div class="hero-text">
+        <h1>Start your workout <div>diary now</div></h1>
+        <div class="hero-border-wrapper">
+            <div class="hero-border xl">
+            </div>
+            <div class="hero-border m"></div>
+            <div class="hero-border m"></div>
+
+        </div>
+    </div>
+</header>
+<section class="login-prompt">
+    <p>Log in or create new acount </p>
+    <a class="btn medium purple-bg white" href="">Log in</a>
+    <div class="register-wrapper">
+        <div class="register-line"></div>
+        <a class="btn medium white light-purple-bg" href="">Sign up</a>
+        <div class="register-line"></div>
+    </div>
+</section>
+
+<section class="infographics-section">
+     <div class="infographics-item purple-bg">
+        <img src="/images/gym 1.png" alt="" srcset="">
+     </div>
+     <div class="infographics-item light-purple-bg">
+      <img src="/images/restaurant 1.png" alt="" srcset="">
+   </div>
+
+   <div class="infographics-item dark-purple-bg">
+    <img src="/images/statistic 1.png" alt="" srcset="">
+ </div>
+   </section>
+
+   <hr class="purle">
+   <section class="about-us">
+     <p>About us</p>
+     <div class="content-wrapper">
+      <div class="content-item-first light-purple-bg">
+
+      </div>
+     <div class="content-item-second purple-bg">
+
+     </div>
+     </div>
+   </section>
+
+<div  class="section-inspirations">
+    <div class="quote-container dark-purple-bg white">
+        <p id="quoteParagraph" class="fade-in"></p>
+        <span id="quoteAuthor" class="quote-author fade-in"></span>
+    </div>
+
 </div>
+
+
+
+
+@section Scripts {
+    <script src="~/js/inspirationalQuotes.js"></script>
+}
+

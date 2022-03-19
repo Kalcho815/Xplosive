@@ -1,0 +1,15 @@
+.purple{
+  color: var(--purple);
+}
+
+.light-purple{
+  color: var(--light-purple);
+}
+
+.dark-purple{
+  color: var(--dark-purple);
+}
+
+.white{
+  color: var(--white);
+}

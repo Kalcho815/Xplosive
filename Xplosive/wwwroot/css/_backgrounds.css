@@ -1,0 +1,15 @@
+.purple-bg{
+  background-color: var(--purple);
+}
+
+.light-purple-bg{
+  background-color: var(--light-purple);
+}
+
+.dark-purple-bg{
+  background-color: var(--dark-purple);
+}
+
+.white-bg{
+  background-color: var(--white);
+}
