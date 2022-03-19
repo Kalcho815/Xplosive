@@ -1,4 +1,10 @@
-﻿:root{
+﻿@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import "./_buttons.css";
+@import "./_colors.css";
+@import "./_backgrounds.css";
+
+
+:root{
   --white: #fff;
   --purple: #7e34a4;
   --light-purple: #bd44a0;
@@ -24,6 +30,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Bebas Neue', cursive;
 }
 .flex{
   display: flex;
@@ -115,5 +122,150 @@ body {
   width: 50px;
 
   transform: skew(50deg);
+
+}
+
+
+
+/*Login prompt section*/
+
+.login-prompt{
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.login-prompt > p{
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.register-wrapper{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.register-line{
+  height: 3px;
+  width: 30%;
+  background-color: var(--dark-purple);
+}
+
+.infographics-section{
+  display: flex;
+  flex-direction: column;
+}
+.infographics-item:nth-child(even){
+  align-self: flex-end;
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 100% 100%, 17% 100%, 10% 61%);
+
+}
+.infographics-item{
+  text-align: center;
+  margin: 2rem;
+  width: 20%;
+  clip-path: polygon(0 0, 100% 0, 92% 54%, 85% 100%, 0 100%, 0% 50%);
+
+}
+.infographics-item > img{
+  width: 100px;
+  height: 100px;
+
+}
+.about-us{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  gap: 2rem;
+
+}
+.about-us > p {
+  margin:  2rem;
+}
+.about-us > p {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.content-wrapper{
+  position: relative;
+  width: 800px;
+  height: 400px;
+}
+
+.content-item-first{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+
+  clip-path: polygon(14% 9%, 80.86% 3.28%, 87.25% 78%, 4% 65.05%);
+
+  z-index: 5;
+}
+
+.content-item-second{
+  position: absolute;
+  top: 10;
+  left: 10;
+  width: 100%;
+  height: 80%;
+  clip-path: polygon(10.53% 9%, 87.25% 9%, 87.25% 77.25%, 4% 68.05%);
+  z-index: 2;
+}
+
+.section-inspirations{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.quote-container{
+  width: 600px;
+  min-height: 200px;
+  max-height: fit-content;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+}
+.quote-container > p{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  align-self: center;
+
+}
+.quote-container .quote-author{
+  font-size: 1.5rem;
+  align-self: flex-end;
+  margin-right: 2rem;
+
+}
+.fade-in{
+  animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
 
 }

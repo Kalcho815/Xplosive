@@ -25,6 +25,11 @@ _UpgradeReport_Files/
 .idea/
 .vs/Xplosive/xs/
 
+*.cache
+*.suo
+*.user
+*.userosscache
+
 bin/
 obj/
 TestResults/
