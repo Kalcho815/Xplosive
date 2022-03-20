@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import "./_buttons.css";
+@import "./_colors.css";
+@import "./_backgrounds.css";
+@import "./_nav.css";
+
+
+:root{
+    --white: #fff;
+    --purple: #7e34a4;
+    --light-purple: #bd44a0;
+    --dark-purple: #4828ab;
+
+}
+
 #homepageHeader{
     background-image: url("/images/image1.png");
     min-height: 100vh;
