@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xplosive.Data;
+using Xplosive.Models;
 
 namespace Xplosive
 {
@@ -33,7 +34,7 @@ namespace Xplosive
                 
             });
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<XplosiveDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
