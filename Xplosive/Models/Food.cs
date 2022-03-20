@@ -21,7 +21,6 @@ namespace Xplosive.Models
         public string Id { get; set; }
 
         [Required]
-        [MaxLength(32)]
         [Column("NAME")]
         public string Name { get; set; }
 

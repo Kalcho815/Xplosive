@@ -22,9 +22,6 @@ namespace Xplosive.Models
         [Key]
         public string Id { get; set; }
 
-        [Column("USERNAME")]
-        public string Username { get; set; }
-
         [Column("DATE_OF_BIRTH")]
         public DateTime DateOfBirth { get; set; }
 

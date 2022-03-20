@@ -28,8 +28,11 @@ namespace Xplosive
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<XplosiveDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            {
+                options.UseMySQL(@"datasource=localhost;username=root;password=;Database=XPLOSIVE_APP;");
+                
+            });
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<XplosiveDbContext>();
             services.AddControllersWithViews();
