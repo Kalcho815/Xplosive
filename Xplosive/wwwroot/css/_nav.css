@@ -36,3 +36,53 @@
     display: block;
     transition: 0.3s;
 }
+#homepageHeader{
+    background-image: url("/images/image1.png");
+    min-height: 100vh;
+    background-size: cover;
+    object-fit: cover;
+    font-family: 'Bebas Neue', cursive;
+
+}
+
+.hero-text{
+
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    text-align: left;
+    z-index: 2;
+    width: 50%;
+}
+.hero-text h1{
+    font-size: 74pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+}
+
+.hero-border{
+    background-color: var(--light-purple);
+    clip-path: polygon(89% 0, 96% 63%, 100% 100%, 0 100%, 0 0);
+    height: 30px;
+
+
+}
+.hero-border-wrapper{
+    display: flex;
+    gap: 2rem;
+}
+
+.hero-border.xl{
+    width: 70%;
+}
+
+.hero-border.m{
+    width: 50px;
+
+    transform: skew(50deg);
+
+}
