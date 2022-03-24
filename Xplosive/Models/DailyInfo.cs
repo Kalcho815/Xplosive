@@ -27,7 +27,7 @@ namespace Xplosive.Models
         public DailyWorkout Workout { get; set; }
 
         [Column("NUTRITION_ID")]
-        [ForeignKey("NUTRITION")]
+        [ForeignKey("DAILY_NUTRITION")]
         public string NutritionId { get; set; }
 
         public DailyNutrition Nutrition { get; set; }

@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xplosive.Data;
+using Xplosive.Models;
 
 namespace Xplosive
 {
@@ -28,9 +29,12 @@ namespace Xplosive
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<XplosiveDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            {
+                options.UseMySQL(@"datasource=localhost;username=root;password=;Database=XPLOSIVE_APP;");
+                
+            });
+
+            services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<XplosiveDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
