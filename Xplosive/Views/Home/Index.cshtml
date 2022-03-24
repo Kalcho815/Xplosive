@@ -8,21 +8,9 @@
 }
 
 
-<header id="homepageHeader">
-    <partial name="~/Views/Shared/_Nav.cshtml">
-        
-    </partial>
-    <div class="hero-text">
-        <h1>Start your workout <div>diary now</div></h1>
-        <div class="hero-border-wrapper">
-            <div class="hero-border xl">
-            </div>
-            <div class="hero-border m"></div>
-            <div class="hero-border m"></div>
+<partial name="_Nav"/>
+    
 
-        </div>
-    </div>
-</header>
 <section class="login-prompt">
     <p>Log in or create new acount </p>
         <a class="btn medium white purple-bg" asp-area="Identity" asp-page="/Account/Login">Login</a>
