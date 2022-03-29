@@ -18,9 +18,22 @@
                 <span asp-validation-for="Id" class="text-danger"></span>
             </div>
             <div>
-                <select id="exercisesSelect" name="exerciseId">
-
-                </select>
+                <select id="exercisesSelect" name="exerciseId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Number"></label>
+                <input asp-for="Number" class="form-control"/>
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepCount"></label>
+                <input asp-for="RepCount" class="form-control"/>
+                <span asp-validation-for="RepCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight"></label>
+                <input asp-for="Weight" type="number" step="0.25" min="0" class="form-control"/>
+                <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Add" class="btn btn-primary" />
