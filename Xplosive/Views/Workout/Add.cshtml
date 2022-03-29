@@ -1,4 +1,4 @@
-﻿@model Xplosive.Models.Set
+﻿@model Xplosive.Viewmodels.SetViewmodel
 
 @{
     ViewData["Title"] = "Add";
@@ -12,14 +12,10 @@
     <div class="col-md-4">
         <form asp-action="Add" asp-controller="Workout">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
             <div>
                 <select id="exercisesSelect" name="exerciseId"></select>
             </div>
+            <input name="exerciseName" id="exerciseName" type="hidden" value="" class="form-control col-sm-3" />
             <div class="form-group">
                 <label asp-for="Number"></label>
                 <input asp-for="Number" class="form-control"/>
@@ -36,7 +32,7 @@
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Add" class="btn btn-primary" />
+                <input type="submit" value="Add" class="btn btn-primary" onclick="getName()"/>
             </div>
         </form>
     </div>
@@ -56,6 +52,12 @@
     getExercises(exercisesUrl);
     var exCount = 0;
     var testCounter = 0;
+
+    function getName() {
+        let selText = $("#exercisesSelect option:selected").text();
+        var exerciseName = document.getElementById("exerciseName");
+        exerciseName.value = selText;
+    }
 
     function getExercises(exercisesUrl) {
 

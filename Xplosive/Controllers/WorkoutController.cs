@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Xplosive.Viewmodels;
 
 namespace Xplosive.Controllers
 {
@@ -10,7 +11,7 @@ namespace Xplosive.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(string exerciseId)
+        public IActionResult Add(SetViewmodel setViewmodel)
         {
             return View();
         }
