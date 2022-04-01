@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Xplosive.Models;
+using Xplosive.Services;
 
 namespace Xplosive.Areas.Identity.Pages.Account
 {
@@ -19,14 +20,17 @@ namespace Xplosive.Areas.Identity.Pages.Account
     public class LoginModel : PageModel
     {
         private readonly UserManager<User> _userManager;
+        private readonly UserService userService;
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
         public LoginModel(SignInManager<User> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<User> userManager)
+            UserManager<User> userManager,
+            UserService userService)
         {
             _userManager = userManager;
+            this.userService = userService;
             _signInManager = signInManager;
             _logger = logger;
         }
@@ -84,6 +88,8 @@ namespace Xplosive.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    //
+
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -101,6 +107,12 @@ namespace Xplosive.Areas.Identity.Pages.Account
                     return Page();
                 }
             }
+
+            //var userService = host.Services.GetRequiredService<UserService>();
+            //userService.DoSomething();
+
+
+
 
             // If we got this far, something failed, redisplay form
             return Page();

@@ -35,6 +35,9 @@ namespace Xplosive.Models
         [Column("WEIGHT")]
         public double Weight { get; set; }
 
+        [Column("DATE")]
+        public DateTime Date { get; set; }
+
 
         [Column("USER_ID")]
         [ForeignKey("USER")]

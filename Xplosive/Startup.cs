@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xplosive.Data;
 using Xplosive.Models;
+using Xplosive.Services;
 
 namespace Xplosive
 {
@@ -36,6 +38,12 @@ namespace Xplosive
 
             services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<XplosiveDbContext>();
+
+            services.AddMvc();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<UserService>();
+            services.AddTransient<WorkoutService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

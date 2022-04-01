@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Xplosive.Data;
 
 namespace Xplosive.Migrations
 {
     [DbContext(typeof(XplosiveDbContext))]
-    partial class XplosiveDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220331233735_Added date to dailyinfo")]
+    partial class Addeddatetodailyinfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

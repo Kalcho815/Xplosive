@@ -10,7 +10,7 @@ namespace Xplosive.Data
 {
     public class XplosiveDbContext : IdentityDbContext
     {
-        public XplosiveDbContext(DbContextOptions<XplosiveDbContext> options)
+        public XplosiveDbContext(DbContextOptions options)
             : base(options)
         {
         }
@@ -20,7 +20,7 @@ namespace Xplosive.Data
         }
 
         //TODO: Write tables
-        public DbSet<DailyInfo> HealthcareActivities { get; set; }
+        public DbSet<DailyInfo> DailyInfos { get; set; }
 
         public DbSet<DailyNutrition> DailyNutritions{ get; set; }
 
