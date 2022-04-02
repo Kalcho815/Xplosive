@@ -15,7 +15,7 @@ namespace Xplosive.Services
         private readonly XplosiveDbContext dbContext;
         private readonly SetAdaptor setAdaptor;
         private readonly IHttpContextAccessor httpContext;
-        private object username;
+        private readonly string username;
         private User user;
 
         public WorkoutService()
@@ -28,11 +28,15 @@ namespace Xplosive.Services
             this.dbContext = dbContext;
             this.setAdaptor = setAdaptor;
             this.httpContext = httpContextAccessor;
-
             this.username = httpContext.HttpContext.User.Identity.Name;
+
             if (username != null)
             {
-                this.user = dbContext.Users.Include(u => u.DailyInfos).ThenInclude(d => d.Workout).Where(u => u.UserName == username).FirstOrDefault();
+                this.user = dbContext.Users
+                    .Include(u => u.DailyInfos)
+                    .ThenInclude(d => d.Workout)
+                    .Where(u => u.UserName == username)
+                    .FirstOrDefault();
             }
         }
 
@@ -40,14 +44,18 @@ namespace Xplosive.Services
         {
             //var dailyWorkout = dbContext.DailyWorkouts.Where(d => d.Date.ToString("d")==date.ToString("d")).FirstOrDefault();
 
-            var dailyInfos = dbContext.Users.Where(u=>u == user).FirstOrDefault().DailyInfos;
+            //var dailyInfos = dbContext.Users.Where(u => u == user).FirstOrDefault().DailyInfos;
+            var userSearch = dbContext.Users
+                .Include(u => u.DailyInfos)
+                .ThenInclude(y => y.Workout)
+                .ThenInclude(s => s.Sets)
+                .Where(u => u.UserName == username)
+                .FirstOrDefault();
+
             DailyWorkout dailyWorkout = null;
 
-            foreach (var dailyInfo in dailyInfos)
+            foreach (var dailyInfo in userSearch.DailyInfos)
             {
-                var firsttest = dailyInfo.Workout.Date.ToShortDateString();
-                var sectest = date.Date.ToShortDateString();
-
                 if (dailyInfo.Workout.Date.ToShortDateString() == date.Date.ToShortDateString())
                 {
                     dailyWorkout = dailyInfo.Workout;
@@ -60,7 +68,8 @@ namespace Xplosive.Services
 
         public DailyWorkout GetDailyWorkout()
         {
-            var dailyWorkout = dbContext.DailyWorkouts.Where(d => d.Date.ToString("d") == DateTime.Now.ToString("d")).FirstOrDefault();
+            var dailyWorkout = dbContext.DailyWorkouts
+                .Where(d => d.Date.ToString("d") == DateTime.Now.ToString("d")).FirstOrDefault();
 
             return dailyWorkout;
         }
