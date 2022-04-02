@@ -1,0 +1,116 @@
+﻿@model Xplosive.Viewmodels.SetViewmodel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add</h1>
+
+<h4>DailyWorkout</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add" asp-controller="Workout">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <select id="exercisesSelect" name="exerciseId"></select>
+            </div>
+            <input name="exerciseName" id="exerciseName" type="hidden" value="" class="form-control col-sm-3" />
+            <div class="form-group">
+                <label asp-for="Number"></label>
+                <input asp-for="Number" class="form-control"/>
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepCount"></label>
+                <input asp-for="RepCount" class="form-control"/>
+                <span asp-validation-for="RepCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight"></label>
+                <input asp-for="Weight" type="number" step="0.25" min="0" class="form-control"/>
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" onclick="getName()"/>
+            </div>
+
+            <input type="text" id="nutritionId" value="id"/>
+            <input type="button" value="search" onclick="getNutritionInfo()" />
+            <p id="nutritionResult"> </p>
+            <p id="nutritionProtein"> Protein: </p>
+            <p id="nutritionFibres"> Fibres: </p>
+            <p id="nutritionCarbs"> Carbs: </p>
+            <p id="nutritionResult"> </p>
+            <p id="nutritionResult"> </p>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+    var exSelect = $('#exercisesSelect');
+    var exercisesUrl = "https://wger.de/api/v2/ingredient/?format=json&language=2";
+    
+    var exCount = 0;
+    var testCounter = 0;
+
+    function getName() {
+        let selText = $("#exercisesSelect option:selected").text();
+        var exerciseName = document.getElementById("exerciseName");
+        exerciseName.value = selText;
+    }
+
+    function getNutritionInfo() {
+
+        var nutritionId = $('#nutritionId');
+        var nutritionResult = $('#nutritionResult');
+        var nutritionProtein = $('#nutritionProtein');
+        var nutritionCarbs = $('#nutritionCarbs');
+        var nutritionFibres = $('#nutritionFibres');
+
+        console.log(nutritionId);
+
+        debugger;
+
+
+        $.ajax({
+            url: exercisesUrl,
+            success: function (exercises) {
+                console.log(exercises);
+                console.log(exercises.count)
+                exercisesUrl = exercises.next;
+
+                $.each(exercises.results, function (index, value) {
+                    console.log(value.id);
+                    console.log(value.name);
+                    console.log(nutritionId);
+                    if(value.name == nutritionId.val())
+                    {
+                        nutritionResult.text(value.name);
+                        nutritionProtein.text("Protein: "+ value.protein);
+                        nutritionCarbs.text("Carbs: "+value.carbohydrates);
+                        nutritionFibres.text("Fibres: " + value.fibres);
+                        return false;
+                    }
+                })
+
+                testCounter++;
+                if (exercises.results) {
+                    getNutritionInfo();
+                }
+                console.log(testCounter);
+            },
+            error: function () {
+                alert("Something went wrong");
+            },
+        });
+    }
+</script>
+}
