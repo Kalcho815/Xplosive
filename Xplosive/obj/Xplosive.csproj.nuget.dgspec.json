@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\uni\\3rd year\\IP3\\Xplosive-repo\\Xplosive\\Xplosive\\Xplosive.csproj": {}
+    "/Users/martin/Desktop/Xplosive/Xplosive/Xplosive.csproj": {}
   },
   "projects": {
-    "D:\\uni\\3rd year\\IP3\\Xplosive-repo\\Xplosive\\Xplosive\\Xplosive.csproj": {
+    "/Users/martin/Desktop/Xplosive/Xplosive/Xplosive.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\uni\\3rd year\\IP3\\Xplosive-repo\\Xplosive\\Xplosive\\Xplosive.csproj",
+        "projectUniqueName": "/Users/martin/Desktop/Xplosive/Xplosive/Xplosive.csproj",
         "projectName": "Xplosive",
-        "projectPath": "D:\\uni\\3rd year\\IP3\\Xplosive-repo\\Xplosive\\Xplosive\\Xplosive.csproj",
-        "packagesPath": "C:\\Users\\kaluber\\.nuget\\packages\\",
-        "outputPath": "D:\\uni\\3rd year\\IP3\\Xplosive-repo\\Xplosive\\Xplosive\\obj\\",
+        "projectPath": "/Users/martin/Desktop/Xplosive/Xplosive/Xplosive.csproj",
+        "packagesPath": "/Users/martin/.nuget/packages/",
+        "outputPath": "/Users/martin/Desktop/Xplosive/Xplosive/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kaluber\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/martin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,19 +44,21 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.17, )"
+              "version": "[3.1.21, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[3.1.17, )"
+              "version": "[3.1.21, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.17, )"
+              "version": "[3.1.21, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.17, )"
+              "version": "[3.1.21, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -79,6 +79,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[3.1.23, 3.1.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -87,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }
