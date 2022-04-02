@@ -37,5 +37,13 @@ namespace Xplosive.Controllers
 
             return View(workoutVms);
         }
+
+        [HttpPost]
+        public IActionResult Delete(string setId)
+        {
+            workoutService.DeleteSet(setId);
+
+            return this.RedirectToAction("All", new {date = DateTime.Now});
+        }
     }
 }

@@ -35,16 +35,37 @@ namespace Xplosive.Services
                 this.user = dbContext.Users
                     .Include(u => u.DailyInfos)
                     .ThenInclude(d => d.Workout)
+                    .ThenInclude(u => u.Sets)
                     .Where(u => u.UserName == username)
                     .FirstOrDefault();
             }
         }
 
+        public void DeleteSet(string setId)
+        {
+            Set setToDelete = null;
+            var userDailyInfos = this.user.DailyInfos;
+
+            foreach (var dailyInfo in userDailyInfos)
+            {
+                foreach (var set in dailyInfo.Workout.Sets)
+                {
+                    if (set.Id == setId)
+                    {
+                        setToDelete = set;
+                    }
+                }
+            }
+
+            if (setToDelete != null)
+            {
+                dbContext.Sets.Remove(setToDelete);
+                dbContext.SaveChanges();
+            }
+        }
+
         public DailyWorkout GetDailyWorkout(DateTime date)
         {
-            //var dailyWorkout = dbContext.DailyWorkouts.Where(d => d.Date.ToString("d")==date.ToString("d")).FirstOrDefault();
-
-            //var dailyInfos = dbContext.Users.Where(u => u == user).FirstOrDefault().DailyInfos;
             var userSearch = dbContext.Users
                 .Include(u => u.DailyInfos)
                 .ThenInclude(y => y.Workout)

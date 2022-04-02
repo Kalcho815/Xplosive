@@ -14,10 +14,13 @@
     </form>
     @foreach (var set in Model.Sets)
     {
-       <p>@set.ExerciseName</p>
-       <p>Rep Count: @set.RepCount</p>
-       <p>Weight: @set.Weight</p>
-       <input type="submit" style="color: red" value="Delete" />
-       <hr />
+        <form asp-controller="Workout" asp-action="Delete" method="post">
+            <p>@set.ExerciseName</p>
+            <p>Rep Count: @set.RepCount</p>
+            <p>Weight: @set.Weight</p>
+            <input type="submit" style="color: red" value="Delete" />
+            <input type="hidden" name="setId" value=@set.Id />
+            <hr />
+        </form>
     }
 </div>

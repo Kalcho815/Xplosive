@@ -14,6 +14,7 @@ namespace Xplosive.Adaptors
             {
                 var setVm = new SetViewmodel()
                 {
+                    Id = set.Id,  
                     ExerciseName = set.ExerciseName,
                     Number = set.Number,
                     RepCount = set.RepCount,
