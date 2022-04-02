@@ -1,0 +1,23 @@
+﻿@using Xplosive.Viewmodels
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model DailyWorkoutViewModel
+
+<div>
+    <form asp-action="All" asp-controller="Workout">
+        <input placeholder="yyyy-mm-dd" name="date" type="date" />
+        <input type="submit" style="color: red" value="Submit" />
+    </form>
+    @foreach (var set in Model.Sets)
+    {
+       <p>@set.ExerciseName</p>
+       <p>Rep Count: @set.RepCount</p>
+       <p>Weight: @set.Weight</p>
+       <input type="submit" style="color: red" value="Delete" />
+       <hr />
+    }
+</div>

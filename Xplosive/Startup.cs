@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Xplosive.Adaptors;
 using Xplosive.Data;
 using Xplosive.Models;
 using Xplosive.Services;
@@ -33,7 +34,6 @@ namespace Xplosive
             services.AddDbContext<XplosiveDbContext>(options =>
             {
                 options.UseMySQL(@"datasource=localhost;username=root;password=;Database=XPLOSIVE_APP;");
-                
             });
 
             services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
@@ -43,6 +43,8 @@ namespace Xplosive
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<UserService>();
+            services.AddTransient<SetService>();
+            services.AddTransient<SetAdaptor>();
             services.AddTransient<WorkoutService>();
             services.AddControllersWithViews();
             services.AddRazorPages();

@@ -22,19 +22,18 @@ namespace Xplosive.Services
             this.username = httpContext.HttpContext.User.Identity.Name;
             if (username != null)
             {
-                this.user = dbContext.Users.Include(u => u.DailyInfos).ThenInclude(d => d.Workout).Where(u => u.UserName == username).FirstOrDefault();
+                this.user = dbContext.Users.Include(u => u.DailyInfos).ThenInclude(d => d.Workout).Where(u => u.UserName == username)
+                    .FirstOrDefault();
             }
         }
 
         public void CheckAndCreateWorkout()
         {
-            
-
             if (!user.DailyInfos.Any(d => d.Date.ToString("d") == DateTime.Now.ToString("d")))
             {
                 var dailyWorkout = new DailyWorkout
                 {
-                    Date = DateTime.Now,
+                    Date = DateTime.Now
                 };
 
                 var dailyNutrition = new DailyNutrition
@@ -48,6 +47,8 @@ namespace Xplosive.Services
                     Nutrition = dailyNutrition,
                     Workout = dailyWorkout,
                     User = user,
+                    NutritionId= dailyNutrition.Id,
+                    WorkoutId = dailyWorkout.Id
                 };
 
                 dbContext.DailyInfos.Add(dailyInfo);
