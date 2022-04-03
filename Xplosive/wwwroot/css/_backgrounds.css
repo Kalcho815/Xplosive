@@ -13,3 +13,6 @@
 .white-bg{
   background-color: var(--white);
 }
+.red-bg{
+  background-color: var(--red);
+}
