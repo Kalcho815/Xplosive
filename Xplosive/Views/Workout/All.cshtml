@@ -4,11 +4,18 @@
 *@
 @{
 }
+@section Styles{
+
+    <link rel="stylesheet" href="~/css/workout-add.css" />
+
+}
 
 @model DailyWorkoutViewModel
+<partial name="_Nav" >
 
-<div>
-    <form asp-action="All" asp-controller="Workout">
+<div class="form-wrapper">
+  <div class="form-container">
+     <form asp-action="All" asp-controller="Workout">
         <input placeholder="yyyy-mm-dd" name="date" type="date" />
         <input type="submit" style="color: red" value="Submit" />
     </form>
@@ -22,5 +29,8 @@
             <input type="hidden" name="setId" value=@set.Id />
             <hr />
         </form>
+        
     }
+  </div>
+   
 </div>

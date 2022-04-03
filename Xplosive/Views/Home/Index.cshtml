@@ -10,8 +10,15 @@
 
 <partial name="_Nav"/>
     
+@* check if user logged in *@
 
-<section class="login-prompt">
+@if (User.Identity.IsAuthenticated)
+  {
+     
+  }
+else
+  {
+  <section class="login-prompt">
     <p>Log in or create new acount </p>
         <a class="btn medium white purple-bg" asp-area="Identity" asp-page="/Account/Login">Login</a>
 
@@ -23,6 +30,12 @@
         <div class="register-line"></div>
     </div>
 </section>
+  }
+
+
+
+
+
 
 <section class="infographics-section">
      <div class="infographics-item purple-bg">

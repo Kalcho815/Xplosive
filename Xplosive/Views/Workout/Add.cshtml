@@ -3,14 +3,19 @@
 @{
     ViewData["Title"] = "Add";
 }
+@section Styles{
 
-<h1>Add</h1>
+    <link rel="stylesheet" href="~/css/workout-add.css" />
 
-<h4>DailyWorkout</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Add" asp-controller="Workout">
+}
+<partial name="_Nav" >
+
+<section class="add-workout-section">
+<div class="form-wrapper">
+    <div class="form-container">
+        <form class="add-workout-form" asp-action="Add" asp-controller="Workout">
+            <h1>Add</h1>
+            <h4>DailyWorkout</h4>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div>
                 <select id="exercisesSelect" name="exerciseId"></select>
@@ -32,15 +37,20 @@
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Add" class="btn btn-primary" onclick="getName()"/>
+              
+
+                <input type="submit" value="Add" class="btn medium border-none purple-bg white" onclick="getName()"/>
+              
             </div>
+            <div>
+    <a asp-action="Index">Back to List</a>
+</div>  
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

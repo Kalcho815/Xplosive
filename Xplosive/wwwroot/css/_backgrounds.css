@@ -1,4 +1,4 @@
-.purple-bg{
+.purple-bg {
   background-color: var(--purple);
 }
 
@@ -12,4 +12,7 @@
 
 .white-bg{
   background-color: var(--white);
+}
+.red-bg{
+  background-color: var(--red);
 }

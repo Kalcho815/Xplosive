@@ -1,42 +1,62 @@
 <header id="homepageHeader">
-    
-       
-    <div class="navbar flex">
-        <div class="logo">
-            <a href="index.html">
-                <img src="~/images/Xplosive.png" width=75 height=75 alt="">
-            </a>
-        </div>
-        <div class="nav-items flex">
-            <div class="nav-shadow"></div>
-            <div class="nav-item">
-            
-                <a href="">Home</a>
-            </div>
-            <div class="nav-item">
-                <a href="/Workout/All?date=@DateTime.Today">Workouts</a>
-            </div>
-            <div class="nav-item">
-                <a href="">Nutritions</a>
-            </div>
-            <div class="nav-item">
-                <a href="">Statistics</a>
-            </div>
-            <div class="nav-item">
-                <a href="">About us</a>
-            </div>
-        </div>
+  <div class="navbar flex">
+    <div class="logo">
+      <a href="index.html">
+        <img src="~/images/Xplosive.png" width=75 height=75 alt="">
+      </a>
     </div>
+    <div class="nav-items flex">
+      <div class="nav-shadow"></div>
+      @if (User.Identity.IsAuthenticated)
+  {
+      <div class="nav-item">
+        <a href='/Workout/All?date=@DateTime.Now.ToString("MM-dd-yyyy")'>Workouts</a>
+      </div>
 
-    <div class="hero-text">
-        <h1>Start your workout <div>diary now</div></h1>
-        <div class="hero-border-wrapper">
-            <div class="hero-border xl">
-            </div>
-            <div class="hero-border m"></div>
-            <div class="hero-border m"></div>
+      <div class="nav-item">
+        <a href="#">Nutritions</a>
+      </div>
 
-        </div>
+      <div class="nav-item">
+        <a href="">Statistics</a>
+      </div>
+      <div class="nav-item">
+        <a href="">@User.Identity.Name</a>
+      </div>
+      <div class="nav-item">
+        <a class="purple-bg" href="/Account/Logout">Logout</a>
+      </div>
+  }
+else
+  {
+  <section class="login-prompt">
+    <p>Log in or create new acount </p>
+        <a class="btn medium white purple-bg" asp-area="Identity" asp-page="/Account/Login">Login</a>
+
+    <div class="register-wrapper">
+        <div class="register-line"></div>
+        <a class="btn medium white light-purple-bg" asp-area="Identity" asp-page="/Account/Register">Sign up</a>
+        <div class="register-line"></div>
     </div>
+</section>
+  }
+
+      
+      <div class="nav-item">
+        <a href="">About us</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-text">
+    <h1>Start your workout <div>diary now</div>
+    </h1>
+    <div class="hero-border-wrapper">
+      <div class="hero-border xl">
+      </div>
+      <div class="hero-border m"></div>
+      <div class="hero-border m"></div>
+
+    </div>
+  </div>
 </header>
-
