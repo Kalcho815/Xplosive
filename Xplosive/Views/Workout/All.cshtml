@@ -6,31 +6,35 @@
 }
 @section Styles{
 
-    <link rel="stylesheet" href="~/css/workout-add.css" />
+    <link rel="stylesheet" href="~/css/workout-all.css" />
 
 }
 
 @model DailyWorkoutViewModel
 <partial name="_Nav" >
-
+<div class="all-workouts-section">
+<div class="entries-wrapper">
 <div class="form-wrapper">
   <div class="form-container">
-     <form asp-action="All" asp-controller="Workout">
-        <input placeholder="yyyy-mm-dd" name="date" type="date" />
-        <input type="submit" style="color: red" value="Submit" />
+     <form class="search-form" asp-action="All" asp-controller="Workout">
+        <input class="date-field" placeholder="yyyy-mm-dd" name="date" type="date" />
+        <input type="submit" class="submit-btn" value="Submit" />
     </form>
     @foreach (var set in Model.Sets)
     {
-        <form asp-controller="Workout" asp-action="Delete" method="post">
+        <form class="entry-form"asp-controller="Workout" asp-action="Delete" method="post">
             <p>@set.ExerciseName</p>
             <p>Rep Count: @set.RepCount</p>
             <p>Weight: @set.Weight</p>
-            <input type="submit" style="color: red" value="Delete" />
+            <input type="submit" class="destroy-btn" value="Delete" />
             <input type="hidden" name="setId" value=@set.Id />
-            <hr />
+            
         </form>
         
     }
   </div>
    
+</div>
+</div>
+
 </div>
