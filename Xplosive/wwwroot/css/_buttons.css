@@ -37,3 +37,31 @@
 .border-none{
   border: none;
 }
+.destroy-btn{
+ background-color: var(--red);
+ opacity: 0.8;
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  cursor: pointer;
+ 
+
+}
+
+.submit-btn{
+  background-color: var(--dark-purple);
+  opacity: 0.8;
+   color: var(--white);
+   border: none;
+   padding: 0.5rem 1rem;
+   font-size: 1.5rem;
+   margin-top: 2rem;
+  cursor: pointer;
+ 
+ }
+
+ .submit-btn:hover, .destroy-btn:hover{
+    opacity: 1;
+ }
