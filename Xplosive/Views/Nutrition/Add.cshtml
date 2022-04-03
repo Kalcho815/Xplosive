@@ -36,13 +36,13 @@
             </div>
 
             <input type="text" id="nutritionId" value="id"/>
-            <input type="button" value="search" onclick="getNutritionInfo()" />
-            <p id="nutritionResult"> </p>
-            <p id="nutritionProtein"> Protein: </p>
-            <p id="nutritionFibres"> Fibres: </p>
-            <p id="nutritionCarbs"> Carbs: </p>
-            <p id="nutritionResult"> </p>
-            <p id="nutritionResult"> </p>
+            <input type="button" value="search" onclick="getNutritionInfo(false)" />
+        </form>
+
+        <form asp-action="" asp-controller="">
+            <div id="nutritionDiv">
+
+            </div>
         </form>
     </div>
 </div>
@@ -56,10 +56,10 @@
 
     <script>
     var exSelect = $('#exercisesSelect');
-    var exercisesUrl = "https://wger.de/api/v2/ingredient/?format=json&language=2";
     
+    var exercisesUrl = "https://wger.de/api/v2/ingredient/?format=json&language=2";
     var exCount = 0;
-    var testCounter = 0;
+    var counter = 0;
 
     function getName() {
         let selText = $("#exercisesSelect option:selected").text();
@@ -67,18 +67,22 @@
         exerciseName.value = selText;
     }
 
-    function getNutritionInfo() {
+    function getNutritionInfo(fromRec) {
 
         var nutritionId = $('#nutritionId');
         var nutritionResult = $('#nutritionResult');
         var nutritionProtein = $('#nutritionProtein');
         var nutritionCarbs = $('#nutritionCarbs');
         var nutritionFibres = $('#nutritionFibres');
+        var nutritionDiv = $('#nutritionDiv');
 
-        console.log(nutritionId);
+        if(!fromRec){
+            nutritionDiv.empty();
+            exercisesUrl = "https://wger.de/api/v2/ingredient/?format=json&language=2";
 
-        debugger;
+        }
 
+        var reachedTen = false;
 
         $.ajax({
             url: exercisesUrl,
@@ -91,26 +95,38 @@
                     console.log(value.id);
                     console.log(value.name);
                     console.log(nutritionId);
-                    if(value.name == nutritionId.val())
+                    if(value.name.toLowerCase().includes(nutritionId.val().toLowerCase()))
                     {
-                        nutritionResult.text(value.name);
-                        nutritionProtein.text("Protein: "+ value.protein);
-                        nutritionCarbs.text("Carbs: "+value.carbohydrates);
-                        nutritionFibres.text("Fibres: " + value.fibres);
+                        nutritionDiv.append($("<input type=\"radio\" /> ")
+                            .attr("value", value.id));
+                        nutritionDiv.append($("<label> </label> </br>")
+                            .text(value.name + "|\n"
+                                  + "Protein: " +value.protein + "|\n"
+                                  + "Carbs: " + value.carbohydrates + "|\n"
+                                  + "Fibres: " + value.fibres + "|\n"
+                                  + "Energy: " + value.energy + "kcal. |\n"
+                                  + "Fat: " + value.fat + "|\n"
+                                  + "Fat saturated: " + value.fat_saturated + "|\n"
+                                  + "Sodium: " + value.sodium + "|\n"));
+                        counter++;
                         return false;
                     }
                 })
 
-                testCounter++;
-                if (exercises.results) {
-                    getNutritionInfo();
+                if(counter==10){
+                    return false;
                 }
-                console.log(testCounter);
+                else if (exercises.results) {
+                    getNutritionInfo(true);
+                }
             },
             error: function () {
                 alert("Something went wrong");
             },
         });
+        if(counter==10){
+            nutritionDiv.emtpy();
+        }
     }
 </script>
 }
