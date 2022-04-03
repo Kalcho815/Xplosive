@@ -1,4 +1,5 @@
-﻿using Xplosive.Models;
+﻿using System.Collections.Generic;
+using Xplosive.Models;
 using Xplosive.Viewmodels;
 
 namespace Xplosive.Adaptors
@@ -23,6 +24,32 @@ namespace Xplosive.Adaptors
                 DailyNutritionId= dailyNutrition.Id,
             };
             return result;
+        }
+
+        public List<FoodViewModel> GetFoodVms(List<Food> foods)
+        {
+            var foodVms = new List<FoodViewModel>();
+
+            foreach (var food in foods)
+            {
+                var foodVm = new FoodViewModel()
+                {
+                    Carbohydrates = food.Carbohydrates,
+                    TimeOfDay = food.TimeOfDay,
+                    Sodium = food.Sodium,
+                    CarbohydratesSugar = food.CarbohydratesSugar,
+                    Energy = food.Energy,
+                    FatSaturated = food.FatSaturated,
+                    Fat = food.Fat,
+                    Fibres = food.Fibres,
+                    Name = food.Name,
+                    Protein = food.Protein,
+                };
+
+                foodVms.Add(foodVm);
+            }
+
+            return foodVms;
         }
     }
 }

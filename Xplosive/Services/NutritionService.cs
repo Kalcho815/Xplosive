@@ -2,8 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using Xplosive.Adaptors;
 using Xplosive.Data;
 using Xplosive.Models;
+using Xplosive.Viewmodels;
 
 namespace Xplosive.Services
 {
@@ -11,13 +13,15 @@ namespace Xplosive.Services
     {
         private readonly XplosiveDbContext dbContext;
         private IHttpContextAccessor httpContext;
+        private readonly FoodAdaptor foodAdaptor;
         private string username;
         private User user;
 
-        public NutritionService(XplosiveDbContext dbContext, IHttpContextAccessor httpContextAccessor)
+        public NutritionService(XplosiveDbContext dbContext, IHttpContextAccessor httpContextAccessor, FoodAdaptor foodAdaptor)
         {
             this.dbContext = dbContext;
             this.httpContext = httpContextAccessor;
+            this.foodAdaptor = foodAdaptor;
             this.username = httpContext.HttpContext.User.Identity.Name;
 
             if (username != null)
@@ -29,6 +33,20 @@ namespace Xplosive.Services
                     .Where(u => u.UserName == username)
                     .FirstOrDefault();
             }
+        }
+
+        public DailyNutritionViewModel GetNutritionVm(DateTime date)
+        {
+            var nutrition = this.GetDailyNutrition(date);
+
+            var nutritionVm = new DailyNutritionViewModel
+            {
+                Date = date,
+                Foods = foodAdaptor.GetFoodVms(nutrition.Foods),
+                Log = nutrition.Log,
+            };
+
+            return nutritionVm;
         }
 
         public DailyNutrition GetDailyNutrition(DateTime date)

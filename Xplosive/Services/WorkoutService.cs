@@ -87,14 +87,6 @@ namespace Xplosive.Services
             return dailyWorkout;
         }
 
-        public DailyWorkout GetDailyWorkout()
-        {
-            var dailyWorkout = dbContext.DailyWorkouts
-                .Where(d => d.Date.ToString("d") == DateTime.Now.ToString("d")).FirstOrDefault();
-
-            return dailyWorkout;
-        }
-
         public DailyWorkoutViewModel GetWorkoutVm(DateTime date)
         {
             var workout = this.GetDailyWorkout(date);
