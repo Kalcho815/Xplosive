@@ -5,8 +5,17 @@
         <img src="~/images/Xplosive.png" width=75 height=75 alt="">
       </a>
     </div>
-    <div class="nav-items flex">
-      <div class="nav-shadow"></div>
+      <button data-visible="false" class="toggle-nav"></button>
+      <div data-visible="true" class="nav-items flex">
+       <div class="nav-item">
+        <div class="menu-icon">
+          <div class="line one"></div>
+          <div class="line two"></div>
+          <div class="line three"></div>
+        </div>
+      </div>
+      <div  class="nav-shadow"></div>
+      
       @if (User.Identity.IsAuthenticated)
   {
       <div class="nav-item">
@@ -29,6 +38,8 @@
       <div class="nav-item">
         <a class="purple-bg" href="/Account/Logout">Logout</a>
       </div>
+      
+        
   }
 else
   {
@@ -44,7 +55,8 @@ else
   }
 
       
-      
+     
+      </div>
     </div>
   </div>
 

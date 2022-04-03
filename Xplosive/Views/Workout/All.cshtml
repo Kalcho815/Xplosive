@@ -19,7 +19,9 @@
      <form class="search-form" asp-action="All" asp-controller="Workout">
         <input class="date-field" placeholder="yyyy-mm-dd" name="date" type="date" />
         <input type="submit" class="submit-btn" value="Submit" />
+        <a href="/Workout/Add" class="submit-btn light-purple-bg">Add New Exercise</a>
     </form>
+    
     @foreach (var set in Model.Sets)
     {
         <form class="entry-form"asp-controller="Workout" asp-action="Delete" method="post">
