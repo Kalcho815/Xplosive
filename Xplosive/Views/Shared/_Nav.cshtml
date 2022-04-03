@@ -10,7 +10,7 @@
       @if (User.Identity.IsAuthenticated)
   {
       <div class="nav-item">
-        <a href="/Workout/All?date=@DateTime.Today">Workouts</a>
+        <a href='/Workout/All?date=@DateTime.Now.ToString("MM-dd-yyyy")'>Workouts</a>
       </div>
 
       <div class="nav-item">

@@ -1,12 +1,4 @@
-button, input[type="submit"], input[type="reset"] {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}
+
 .form-group{
   width: 100%;
 }
@@ -27,12 +19,12 @@ button, input[type="submit"], input[type="reset"] {
 }
 .btn.sm{
   font-size: 1.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
 }
 
 .btn.medium{
-  font-size: 2rem;
-  padding: 0.2rem 3rem;
+  font-size: 1.5rem;
+  padding: 0.2rem 2.5rem;
 }
 .btn.large{
   font-size: 3rem;
@@ -41,4 +33,7 @@ button, input[type="submit"], input[type="reset"] {
 
 .btn.underlined{
   text-decoration: underline;
+}
+.border-none{
+  border: none;
 }

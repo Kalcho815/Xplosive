@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import "./_backgrounds.css";
+@import "./_buttons.css";
+@import "./_colors.css";
+@import "./_nav.css";
+
+
+:root{
+    --white: #fff;
+    --purple: #7e34a4;
+    --light-purple: #bd44a0;
+    --dark-purple: #4828ab;
+
+}
+
+.form-wrapper{
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+.form-container{
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-container form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+select{
+  width: 100%;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  /* position on flex start */
+  margin-left: 0;
+}
+.add-workout-section{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
