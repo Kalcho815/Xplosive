@@ -10,40 +10,12 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Add" asp-controller="Workout">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div>
-                <select id="exercisesSelect" name="exerciseId"></select>
-            </div>
-            <input name="exerciseName" id="exerciseName" type="hidden" value="" class="form-control col-sm-3" />
-            <div class="form-group">
-                <label asp-for="Number"></label>
-                <input asp-for="Number" class="form-control"/>
-                <span asp-validation-for="Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepCount"></label>
-                <input asp-for="RepCount" class="form-control"/>
-                <span asp-validation-for="RepCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Weight"></label>
-                <input asp-for="Weight" type="number" step="0.25" min="0" class="form-control"/>
-                <span asp-validation-for="Weight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Add" class="btn btn-primary" onclick="getName()"/>
-            </div>
 
-            <input type="text" id="nutritionId" value="id"/>
+            <input type="text" id="nutritionId" value="juice" />
             <input type="button" value="search" onclick="getNutritionInfo(false)" />
-        </form>
 
-        <form asp-action="" asp-controller="">
-            <div id="nutritionDiv">
-
-            </div>
-        </form>
+        <div id="nutritionDiv">
+        </div>
     </div>
 </div>
 
@@ -52,11 +24,13 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 
-    <script>
+<script>
     var exSelect = $('#exercisesSelect');
-    
+
     var exercisesUrl = "https://wger.de/api/v2/ingredient/?format=json&language=2";
     var exCount = 0;
     var counter = 0;
@@ -79,10 +53,11 @@
         if(!fromRec){
             nutritionDiv.empty();
             exercisesUrl = "https://wger.de/api/v2/ingredient/?format=json&language=2";
-
+            counter=0;
         }
 
         var reachedTen = false;
+        
 
         $.ajax({
             url: exercisesUrl,
@@ -90,24 +65,40 @@
                 console.log(exercises);
                 console.log(exercises.count)
                 exercisesUrl = exercises.next;
-
                 $.each(exercises.results, function (index, value) {
                     console.log(value.id);
                     console.log(value.name);
                     console.log(nutritionId);
                     if(value.name.toLowerCase().includes(nutritionId.val().toLowerCase()))
                     {
-                        nutritionDiv.append($("<input type=\"radio\" /> ")
-                            .attr("value", value.id));
-                        nutritionDiv.append($("<label> </label> </br>")
+                        var currentForm = "<form method=\"post\" action=\"Add\" id=\"currentForm\"></form>";
+                        nutritionDiv.append(currentForm);
+                        var currentFormId = $("#currentForm");
+                        currentFormId.append($("<label> </label> </br>")
                             .text(value.name + "|\n"
                                   + "Protein: " +value.protein + "|\n"
                                   + "Carbs: " + value.carbohydrates + "|\n"
+                                  + "Sugar: " + value.carbohydrates_sugar + "|\n"
                                   + "Fibres: " + value.fibres + "|\n"
                                   + "Energy: " + value.energy + "kcal. |\n"
                                   + "Fat: " + value.fat + "|\n"
                                   + "Fat saturated: " + value.fat_saturated + "|\n"
                                   + "Sodium: " + value.sodium + "|\n"));
+
+                        currentFormId.append($("<input /> ").attr({"value":value.id,type:"hidden" }));
+                        currentFormId.append($("<input />").attr({"name":"protein", "value":value.protein, "type":"hidden" }));
+                        currentFormId.append($("<input />").attr({"name":"name", "value":value.name, "type":"hidden" }));
+                        currentFormId.append($("<input />").attr({"name":"carbohydrates", "value":value.carbohydrates, "type":"hidden"}));
+                        currentFormId.append($("<input />").attr({"name":"carbohydratesSugar", "value": value.carbohydrates_sugar,"type":"hidden"}));
+                        currentFormId.append($("<input />").attr({"name":"fibres", "value":value.fibres,"type":"hidden"}));
+                        currentFormId.append($("<input />").attr({"name":"energy", "value":value.energy, "type":"hidden"}));
+                        currentFormId.append($("<input />").attr({"name":"fat", "value":value.fat,"type":"hidden"}));
+                        currentFormId.append($("<input />").attr({"name":"fatSaturated", "value":value.fat_saturated, "type":"hidden"}));
+                        currentFormId.append($("<input />").attr({"name":"sodium", "value":value.sodium,"type":"hidden"}));
+                        currentFormId.append("<br/>")
+                        currentFormId.append($("<input />").attr({"type":"submit", "style":"color:red"}));
+                        currentFormId.append("<hr/> <br/>")
+                       
                         counter++;
                         return false;
                     }
