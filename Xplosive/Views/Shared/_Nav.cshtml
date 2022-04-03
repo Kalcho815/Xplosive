@@ -1,7 +1,7 @@
 <header id="homepageHeader">
   <div class="navbar flex">
     <div class="logo">
-      <a href="index.html">
+      <a href="/">
         <img src="~/images/Xplosive.png" width=75 height=75 alt="">
       </a>
     </div>
@@ -24,27 +24,27 @@
         <a href="">@User.Identity.Name</a>
       </div>
       <div class="nav-item">
+        <a href="">About us</a>
+      </div>
+      <div class="nav-item">
         <a class="purple-bg" href="/Account/Logout">Logout</a>
       </div>
   }
 else
   {
-  <section class="login-prompt">
-    <p>Log in or create new acount </p>
-        <a class="btn medium white purple-bg" asp-area="Identity" asp-page="/Account/Login">Login</a>
-
-    <div class="register-wrapper">
-        <div class="register-line"></div>
-        <a class="btn medium white light-purple-bg" asp-area="Identity" asp-page="/Account/Register">Sign up</a>
-        <div class="register-line"></div>
-    </div>
-</section>
-  }
-
-      
+      <div class="nav-item">
+        <a href="/Account/Login">Login</a>
+      </div>
+      <div class="nav-item">
+        <a href="/Account/Register">Register</a>
+      </div>
       <div class="nav-item">
         <a href="">About us</a>
       </div>
+  }
+
+      
+      
     </div>
   </div>
 
