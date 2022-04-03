@@ -26,5 +26,20 @@ namespace Xplosive.Adaptors
 
             return setVms;
         }
+
+        public Set GetSetModel(SetViewmodel viewModel, DailyWorkout dailyWorkout)
+        {
+            var set = new Set
+            {
+                Number = viewModel.Number,
+                RepCount = viewModel.RepCount,
+                Weight = viewModel.Weight,
+                ExerciseId = viewModel.ExerciseId,
+                ExerciseName = viewModel.ExerciseName,
+                DailyWorkout = dailyWorkout,
+                DailyWorkoutId = dailyWorkout.Id,
+            };
+            return set;
+        }
     }
 }

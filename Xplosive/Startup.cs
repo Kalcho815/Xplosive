@@ -46,6 +46,9 @@ namespace Xplosive
             services.AddTransient<SetService>();
             services.AddTransient<SetAdaptor>();
             services.AddTransient<WorkoutService>();
+            services.AddTransient<FoodAdaptor>();
+            services.AddTransient<FoodService>();
+            services.AddTransient<NutritionService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
