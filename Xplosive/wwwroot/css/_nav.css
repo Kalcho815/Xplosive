@@ -42,8 +42,8 @@
     background-size: cover;
     object-fit: cover;
     font-family: 'Bebas Neue', cursive;
-    width: 100%;
-
+    max-width: 100%;
+    
 }
 
 .hero-text{
@@ -138,6 +138,7 @@
     width:50%;
     transform: translateX(100%);
     transition: ease-in 0.5s;
+    z-index: 8000;
 
   }
   .hero-text h1{
