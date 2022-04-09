@@ -16,3 +16,6 @@
 .red-bg{
   background-color: var(--red);
 }
+.black-bg{
+  background-color: var(--black);
+}

@@ -1,7 +1,81 @@
 ﻿@{
     ViewData["Title"] = "AboutUs Page";
 }
+@section Styles{
+<link rel="stylesheet" href="~/css/about-us.css" />
+
+}
 
 
 <partial name="_Nav"/>
 
+<section class="about-us-section">
+  
+  <section class="hero-section">
+    <div class="left-side">
+      <img class="hero-img" src="~/images/manDumbbell.jpg" alt="About us hero image" />
+    </div>
+    <div class="right-side">
+      <div class="hero-title">
+          <h1 class=" dark-purple page-title">About us</h1>
+      </div>
+      <div class="hero-paragraph">
+        <div class="hero-content">
+           <p class="black">
+          Xplosive provides you with all the tools you'll need to keep track of your workouts and progress, 
+          allowing you to achieve better results. Our main goal is to help you improve your life and become 
+          the healthiest version of yourself.
+        </p>
+        <a class="btn large white dark-purple-bg" href="">Start now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="graphics-section">
+    <div class="item gym-info">
+      <div class="img-wrapper light-purple-bg">
+        <img src="~/images/gym 1.png" alt="Gym" />
+      </div>
+      <div class="content">
+        <h2 class="dark-purple">Gym</h2>
+        <p class="black">
+          You may plan and save your workouts by picking which muscle groups to target which are shown visually. 
+          We also give you the option to choose from pre-selected workouts. 
+          All progress can be tracked. Want to check it out click below.
+        </p>
+        <a class="btn medium white light-purple-bg" href="">Add workout entry</a>
+
+      </div>
+    </div>
+    <div class="item gym-info">
+      <div class="img-wrapper dark-purple-bg">
+        <img src="~/images/statistic 1.png" alt="Gym" />
+      </div>
+      <div class="content">
+        <h2 class="dark-purple">Statistic</h2>
+        <p class="black">
+          We can calculate and track the number of calories you need per day by entering some basic information. 
+          You can check out our calorie calculator below
+        </p>
+        <a class="btn medium white dark-purple-bg" href="">Add workout entry</a>
+      </div>
+    </div>
+
+    <div class="item gym-info">
+      <div class="img-wrapper purple-bg">
+        <img src="~/images/restaurant 1.png" alt="Gym" />
+      </div>
+      <div class="content">
+        <h2 class="dark-purple">Nutrition</h2>
+        <p class="black">
+          If you want to enhance your nutrition, we also have a meal builder. 
+          We have an abundance of ingredients for you to choose and add to your meal all calories, 
+          macros and micros are displayed for you. Want to check it out click below.
+        </p>
+        <a class="btn medium white purple-bg" href="">Add workout entry</a>
+
+      </div>
+    </div>
+  </section>
+</section>

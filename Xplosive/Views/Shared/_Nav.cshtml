@@ -32,11 +32,16 @@
       <div class="nav-item">
         <a href="">@User.Identity.Name.Split("@")[0]</a>
       </div>
-      <div class="nav-item">
-        <a href="">About us</a>
+      @* Note that we render the about us twice\
+        This is simply because we want to keep the order for 
+        logged in users the same as the order 
+        for non-logged in users.\
+       *@
+       <div class="nav-item">
+        <a href="/AboutUs">About us</a>
       </div>
       <div class="nav-item">
-        <a class="purple-bg" href="/Intentity/Account/Logout">Logout</a>
+        <a class="purple-bg" href="/Identity/Account/Logout">Logout</a>
       </div>
       
         
@@ -44,18 +49,15 @@
 else
   {
       <div class="nav-item">
-        <a href="/Account/Login">Login</a>
+        <a href="/Identity/Account/Login">Login</a>
       </div>
       <div class="nav-item">
-        <a href="/Account/Register">Register</a>
+        <a href="/Identity/Account/Register">Register</a>
       </div>
       <div class="nav-item">
-        <a href="">About us</a>
+        <a href="/AboutUs">About us</a>
       </div>
   }
-
-      
-     
       </div>
     </div>
   </div>
