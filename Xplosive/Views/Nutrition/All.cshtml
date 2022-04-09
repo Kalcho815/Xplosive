@@ -6,34 +6,38 @@
 }
 @section Styles{
 
-    <link rel="stylesheet" href="~/css/workout-add.css" />
+    <link rel="stylesheet" href="~/css/add-nutritions.css" />
 
 }
 
 @model DailyNutritionViewModel
 <partial name="_Nav" >
+<section class="add-nutrition-section">
 
-<div class="form-wrapper">
-  <div class="form-container">
-     <form asp-action="All" asp-controller="Nutrition">
-        <input placeholder="yyyy-mm-dd" name="date" type="date" />
-        <input type="submit" style="color: red" value="Submit" />
+<div class="date-form">
+     <form class="flex" asp-action="All" asp-controller="Nutrition">
+        <input placeholder="yyyy-mm-dd" class="search-field" name="date" type="date" />
+        <input type="submit" class="btn medium submit-btn" value="Submit" />
     </form>
-    @foreach (var food in Model.Foods)
+</div>
+    <div id="nutritionDiv">
+       @foreach (var food in Model.Foods)
     {
         <form asp-controller="Workout" asp-action="Delete" method="post">
-            <p>@food.Name</p>
-            <p>Calories: @food.Energy kcal.</p>
-            <p>Carbs: @food.Carbohydrates g.</p>
-            <p>Fat: @food.Fat g.</p>
-            <p>Protein: @food.Protein g.</p>
-            <p>Sugar: @food.CarbohydratesSugar g.</p>
-            <input type="submit" style="color: red" value="Delete" />
+            <h2  class="dark-purple" >@food.Name</h2>
+            <div class="nutrition-properties">
+              <p class="nutrition-property blue-bg white" >Calories: @food.Energy kcal.</p>
+              <p class="nutrition-property orange-bg white">Carbs: @food.Carbohydrates g.</p>
+              <p class="nutrition-property red-bg white" >Fat: @food.Fat g.</p>
+              <p class="nutrition-property green-bg white" >Protein: @food.Protein g.</p>
+              <p class="nutrition-property dark-purple-bg white" >Sugar: @food.CarbohydratesSugar g.</p>
+            </div>
+            
+            <input type="submit" class="submit-btn red-bg white round" value="Delete" />
             <input type="hidden" name="setId" value=@food.Id />
             <hr />
         </form>
         
     }
-  </div>
-   
-</div>
+    </div>   
+</section>

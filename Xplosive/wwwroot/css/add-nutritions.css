@@ -62,3 +62,14 @@
 .add-nutrition-btn{
   margin-top: auto;
 }
+.date-form{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.date-form form{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
