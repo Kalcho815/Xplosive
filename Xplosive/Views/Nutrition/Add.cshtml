@@ -3,25 +3,27 @@
 @{
     ViewData["Title"] = "Add";
 }
+@section Styles{
+      <link rel="stylesheet" href="~/css/add-nutritions.css" />
 
-<h1>Add</h1>
+}
+<partial name="_Nav" />
+<section class="add-nutrition-section">
+  <div class="form-wrapper">
+    <div class="search-wrapper">
 
-<h4>DailyWorkout</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+            <input class="search-field" type="text" id="nutritionId" value="juice" />
+            <input class="btn medium submit-btn" type="button" value="search" onclick="getNutritionInfo(false)" />
 
-            <input type="text" id="nutritionId" value="juice" />
-            <input type="button" value="search" onclick="getNutritionInfo(false)" />
-
-        <div id="nutritionDiv">
-        </div>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+<div id="nutritionDiv">
 </div>
+<div>
+    <a href="/Nutrition/All">Back to List</a>
+</div>
+</section>
+
 
 @section Scripts {
     @{
@@ -71,19 +73,39 @@
                     console.log(nutritionId);
                     if(value.name.toLowerCase().includes(nutritionId.val().toLowerCase()))
                     {
-                        var currentForm = "<form method=\"post\" action=\"Add\" id=\"currentForm\"></form>";
+                        var currentForm = `<form method="post" action="Add" id="currentForm-${value.id}"></form>`;
                         nutritionDiv.append(currentForm);
-                        var currentFormId = $("#currentForm");
+                        var currentFormId = $(`#currentForm-${value.id}`);
                         currentFormId.append($("<label> </label> </br>")
-                            .text(value.name + "|\n"
-                                  + "Protein: " +value.protein + "|\n"
-                                  + "Carbs: " + value.carbohydrates + "|\n"
-                                  + "Sugar: " + value.carbohydrates_sugar + "|\n"
-                                  + "Fibres: " + value.fibres + "|\n"
-                                  + "Energy: " + value.energy + "kcal. |\n"
-                                  + "Fat: " + value.fat + "|\n"
-                                  + "Fat saturated: " + value.fat_saturated + "|\n"
-                                  + "Sodium: " + value.sodium + "|\n"));
+                            .append($(`
+                                        <h2 class="dark-purple">${value.name}</h2>
+                                        <div class="nutrition-properties">
+                                          <div class="nutrition-property blue-bg white">
+                                              <p>Protein: ${value.protein}</p>
+                                          </div>
+                                          <div class="nutrition-property red-bg white">
+                                              <p>Carbs: ${value.carbohydrates}</p>
+                                          </div>
+                                          <div class="nutrition-property purple-bg white ">
+                                              <p>Sugar: ${value.carbohydrates_sugar}</p>
+                                          </div>
+                                          <div class="nutrition-property dark-purple-bg white">
+                                              <p>Fibres: ${value.fibres}</p>
+                                          </div>
+                                          <div class="nutrition-property light-purple-bg white">
+                                              <p>Energy: ${value.energy}</p>
+                                          </div>
+                                          <div class="nutrition-property orange-bg">
+                                              <p>Fat: ${value.fat}</p>
+                                          </div>
+                                          <div class="nutrition-property purple-bg white">
+                                              <p>Fat saturated: ${value.fat_saturated}</p>
+                                          </div>
+                                          <div class="nutrition-property red-bg white">
+                                              <p>Sodium: ${value.sodium}</p>
+                                          </div>
+                                        </div>
+                                  `)));
 
                         currentFormId.append($("<input /> ").attr({"value":value.id,type:"hidden" }));
                         currentFormId.append($("<input />").attr({"name":"protein", "value":value.protein, "type":"hidden" }));
@@ -96,7 +118,7 @@
                         currentFormId.append($("<input />").attr({"name":"fatSaturated", "value":value.fat_saturated, "type":"hidden"}));
                         currentFormId.append($("<input />").attr({"name":"sodium", "value":value.sodium,"type":"hidden"}));
                         currentFormId.append("<br/>")
-                        currentFormId.append($("<input />").attr({"type":"submit", "style":"color:red"}));
+                        currentFormId.append($("<input class='submit-btn white round add-nutrition-btn'/>").attr({"type":"submit"}));
                         currentFormId.append("<hr/> <br/>")
                        
                         counter++;
