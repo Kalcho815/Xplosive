@@ -19,3 +19,12 @@
 .black-bg{
   background-color: var(--black);
 }
+.blue-bg{
+  background-color: var(--blue);
+}
+.green-bg{
+  background-color: var(--green);
+}
+.orange-bg{
+  background-color: var(--orange);
+}
