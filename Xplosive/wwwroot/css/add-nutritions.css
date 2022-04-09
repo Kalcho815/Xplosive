@@ -59,4 +59,6 @@
   border-radius: 10px;
   padding: 0.6rem;
 }
-/* media screen for tablets */
+.add-nutrition-btn{
+  margin-top: auto;
+}
