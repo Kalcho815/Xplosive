@@ -1,0 +1,110 @@
+body {
+  background-image: url("background2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.square {
+  width: 797.27px;
+  height: 546px;
+  background: #7e34a4;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 30px black;
+}
+
+#img {
+  position: absolute;
+  left: 29%;
+  top: 10%;
+}
+
+.title {
+  font-family: Bebas Neue;
+  font-size: 96px;
+  padding: 0%;
+  color: #7e34a4;
+
+  text-align: center;
+}
+
+.paragraph {
+  font-family: Montserrat;
+  font-size: 24px;
+  color: #ffffff;
+
+  text-align: center;
+}
+
+#line1 {
+  width: 241.15px;
+  height: 0px;
+  border: 5px solid #ec38c1;
+  transform: rotate(135.84deg);
+
+  position: relative;
+  left: -70px;
+  top: 40px;
+}
+
+#line2 {
+  width: 241.15px;
+  height: 0px;
+  border: 5px solid #ec38c1;
+  transform: rotate(135.84deg);
+
+  position: relative;
+  left: -40px;
+  top: 55px;
+}
+
+#box {
+  width: 420px;
+  height: 30px;
+  background: #bd44a0;
+  clip-path: polygon(0 0, 94% 0, 100% 99%, 0% 100%);
+
+  position: relative;
+  top: 140px;
+}
+
+#parallelogram {
+  width: 50px;
+  height: 30px;
+  transform: skew(40deg);
+  background: #bd44a0;
+
+  position: absolute;
+  left: 55%;
+  top: 89%;
+}
+
+#button {
+  width: 187px;
+  height: 53px;
+  background: #bd44a0;
+
+  position: absolute;
+  left: 39%;
+
+  transition: 0.3s;
+}
+
+#button:hover {
+  background-color: #4828ab;
+}
+
+#txtbtn {
+  font-family: Bebas Neue;
+  font-size: 40px;
+  color: #ffffff;
+
+  position: relative;
+  text-align: center;
+  top: -35px;
+}
